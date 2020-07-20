@@ -5,11 +5,11 @@ from .models import User
 
 
 class RegisterForm(UserCreationForm):
-    password1   =   forms.CharField(label="", widget=forms.PasswordInput(attrs={
+    password1   =   forms.CharField(label="Password", widget=forms.PasswordInput(attrs={
         'class':"form-control",
         'placeholder':"Enter Password"
     }))
-    password2   =   forms.CharField(label="", widget=forms.PasswordInput(attrs={
+    password2   =   forms.CharField(label="Confirm Password", widget=forms.PasswordInput(attrs={
         'class':"form-control",
         'placeholder':"Confirm Password"
     }))
