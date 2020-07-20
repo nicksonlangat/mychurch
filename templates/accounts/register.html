@@ -4,7 +4,7 @@
 {% block title %}Sign Up{% endblock %}
 {% block content %}
 
-    <h2>Sign up</h2>
+    <h2>Register Today</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.email|as_crispy_field }}
@@ -24,8 +24,8 @@
               {{ form.password2|as_crispy_field }}
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Register in</button>
-          <a href="{% url 'login' %}">Log in</a>
+          <button type="submit" class="btn btn-primary">Register</button>Or
+          <a class="btn btn-primary" href="{% url 'login' %}">Log in</a>
 
     </form>
 
