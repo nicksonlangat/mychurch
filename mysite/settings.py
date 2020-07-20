@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'core',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -118,10 +119,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL="accounts.User"
-LOGIN_REDIRECT_URL=''
-LOGOUT_REDIRECT_URL=''
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL='home'
 STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = [
