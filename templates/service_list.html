@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if user.is_authenticated %}
+    <p class="lead alert alert-info">Hello {{ user.first_name }},<br>
+    the following GWRC service is underway</p>
+    {%endif%}
+    {% for x in object_list %}
+    <div class="card" style="width: 18rem;">
+       <img class="card-img-top" src="{% static 'avatar/church.jpg' %}" alt="Church">
+       <div class="card-body">
+         <p class="card-text"><strong>Service:</strong>{{x.name}}</p>
+         <p class="card-text"><strong>Session:</strong>{{x.service_type}}</p>
+         <p class="card-text"><strong>Seats:</strong>{{x.seat_capacity}}</p>
+         <a href="{% url 'book' %}" class="card-link">Reserve A Seat</a>
+       </div>
+    </div>
+    {%endfor%}<!-- <br><br>
+    <div class="card" style="width: 18rem;">
+       <div class="card-body">
+         <p class="card-text">The folowing is the seating arrangement.</p>
+       </div>
+       <img class="card-img-top" src="{% static 'avatar/seat.jpeg' %}" alt="Church">
+    </div> -->
+{% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from django.utils import timezone
 from accounts.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -42,4 +43,8 @@ class Attendance(models.Model):
 
 	def __str__(self):
 		return f'{self.user} attended {self.service} and booked seat number {self.seat}'
+
+	def get_absolute_url(self):
+		return reverse('attendances')
+        
 
