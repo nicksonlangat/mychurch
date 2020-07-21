@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="table-users">
+   <div class="header">Congregation</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th>Picture</th>
+         <th>Surname</th>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th>Service</th>
+         <th>Service Type</th>
+         <th>Seat</th>
+         <th>Time</th>
+         
+      </tr>
+
+      <tr>
+        {% for x in object_list%}
+         <td><img src="{% static 'avatar/avatar.png' %}" alt="" /></td>
+         <td>{{x.user.last_name}}</td>
+         <td>{{x.user.first_name}}</td>
+         <td>{{x.user.email}}</td>
+         <td>{{x.user.mobile}}</td>
+         <td>{{x.service.name}}</td>
+         <td>{{x.service.service_type}}</td>
+         <td>{{x.seat}}</td>
+         <td>{{x.check_in|time}}</td>
+         {% endfor %}
+      </tr>
+   </table>
+</div>
+</body>
+</html>

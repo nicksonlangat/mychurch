@@ -70,3 +70,7 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+from django.contrib import admin
+
+admin.site.register(User)
