@@ -9,8 +9,7 @@
         
     </head>
     <body>
-
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container">
               <a class="navbar-brand" href="{% url 'home' %}">GRWC</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,11 +39,13 @@
               </div>
             </div>
           </nav>
+        
         <br />
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
                     {% block content %}
+                    <h1>hello</h1>
                     {% endblock %}
                 </div>
             </div>

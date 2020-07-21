@@ -4,16 +4,12 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-class AttendanceCreate(LoginRequiredMixin, CreateView):
+class AttendanceCreate(CreateView):
     model = Attendance
-    fields = ['service', 'seat']
+    fields = ['first_name','middle_name','last_name','phone_number','email','service','seat']
     template_name="new_attendance.html"
 
-    def form_valid(self, form):   #the current logged in user will automatically be added as the doc author 
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-class AttendanceList(LoginRequiredMixin, ListView):
+class AttendanceList(ListView):
     model = Attendance
     template_name="list.html"
 

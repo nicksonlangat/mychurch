@@ -36,13 +36,17 @@ class Seat(models.Model):
 		return str(self.number)
 
 class Attendance(models.Model):
-	user=models.ForeignKey(User, on_delete=models.CASCADE)
+	first_name=models.CharField(max_length=20)
+	middle_name=models.CharField(max_length=20)
+	last_name=models.CharField(max_length=20)
+	phone_number=models.PositiveIntegerField()
+	email=models.CharField(max_length=20, blank=True, null=True)
 	service=models.ForeignKey(Service, on_delete=models.CASCADE, related_name='attended_service')
 	seat=models.ForeignKey(Seat, on_delete=models.CASCADE)
 	check_in = models.DateTimeField(default=timezone.now)
 
 	def __str__(self):
-		return f'{self.user} attended {self.service} and booked seat number {self.seat}'
+		return f'{self.first_name} attended {self.service.name} and booked seat number {self.seat}'
 
 	def get_absolute_url(self):
 		return reverse('attendances')

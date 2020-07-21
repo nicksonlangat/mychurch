@@ -1,10 +1,31 @@
 {% extends "base.html" %}
+{%load static%}
 {% load crispy_forms_tags %}
 {% block title %}Reserve A Seat{% endblock %}
 {% block content %}
+<img style="max-width:100%;height:auto;" src="{% static 'avatar/ik.png' %}" alt="Cinque Terre" width="1000" height="300">
+    <h1>{% now "l jS F Y"%}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Reserve</button>
+        <h2>AGREED UPON TERMS FOR ON-SITE SERVICES:</h2>
+      <h2>Registration</h2>
+      <p>Required for on-site attendance (100 people max/service).</p>
+      <h2>Facemasks</h2>
+      <p>Use of facemask/facial covering is required for all attendees before, during and after the service.</p>
+      <h2>Screening</h2>
+      <ul>
+          <li>Please check your temperature and self screen for COVID-19 symptoms before attending a service.</li>
+          <li>All attendees will have their temperature checked prior to entering the sanctuary. Any individual with a tempersture of more than 100.4 degrees F or more will not be permitted to attend the service in person.</li>
+          <li>Any household member that has been diagnosed with COVID-19 or with symptoms of COVID-19(including a fever of above 100.4 degrees F) may not attend a service.</li>
+      </ul>
+      <h2>Pysical Distancing</h2>
+      <ul>
+          <li>Please maintain a minimum of 6 feet of distance between individuals(including members or your household) at all times before, during and after the service.</li>
+          <li>There will be no classes for children. Children should remain with parents at all times and not interact with other children.</li>
+      </ul>
+      <p><input type="checkbox" required name="terms"> I AGREE</p><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      
 {% endblock %}

@@ -14,6 +14,7 @@
       <tr>
          <th>Picture</th>
          <th>Surname</th>
+         <th>MidName</th>
          <th>Name</th>
          <th>Email</th>
          <th>Phone</th>
@@ -27,10 +28,11 @@
       <tr>
         
          <td><img src="{% static 'avatar/avatar.png' %}" alt="" /></td>
-         <td>{{x.user.last_name}}</td>
-         <td>{{x.user.first_name}}</td>
-         <td>{{x.user.email}}</td>
-         <td>{{x.user.mobile}}</td>
+         <td>{{x.first_name}}</td>
+         <td>{{x.middle_name}}</td>
+         <td>{{x.last_name}}</td>
+         <td>{{x.email}}</td>
+         <td>{{x.phone_number}}</td>
          <td>{{x.service.name}}</td>
          <td>{{x.service.service_type}}</td>
          <td>{{x.seat}}</td>
