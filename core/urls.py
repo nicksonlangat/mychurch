@@ -1,8 +1,10 @@
 from django.urls import path
 from .views import *
-urlpatterns = [
-    path('list', ServiceList.as_view(),name="list"),
-    path('', AttendanceCreate.as_view(),name="home"),
+from . import views
+urlpatterns = [ 
+    path('',views.attendance,name="home"),
     path('attendances', AttendanceList.as_view(),name="attendances"),
-    path('seats', SeatList.as_view(),name="seats"),
+    # path('', AttendanceCreate.as_view(),name="home"),
+    # path('list',views.services,name="list"),
+    # path('seats', SeatList.as_view(),name="seats"),
 ]
