@@ -9,4 +9,4 @@ class ServiceForm(ModelForm):
 class AttendanceForm(ModelForm):
     class Meta:
         model = Attendance
-        fields = '__all__'
+        exclude = ('status',)

@@ -29,17 +29,20 @@ class PublishedManager(models.Manager):
 
 class Service(models.Model):
 	name=models.CharField(max_length=20)
-	service_type = models.CharField(max_length=20,choices=SERVICE_TYPE_CHOICES)
+	# service_type = models.CharField(max_length=20,choices=SERVICE_TYPE_CHOICES)
 	date=models.DateField()
-	seat_capacity=models.PositiveIntegerField()
+	seats=models.ManyToManyField('Seat')
 	live = models.BooleanField(default=True)
+	start=models.IntegerField()
+	end=models.IntegerField()
 
 	def __str__(self):
-		return f'{self.name} on {self.date}'
+		return f'{self.name} on {self.date} time {self.start} to {self.end}'
 
 class Seat(models.Model):
 	number=models.PositiveIntegerField()
 	is_reserved = models.BooleanField(default=False)
+	# service=models.ForeignKey(Service, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return str(self.number)
