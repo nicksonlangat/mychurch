@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 {% block title %}Reserve A Seat{% endblock %}
 {% block content %}
-<img style="max-width:40%;height:auto; margin-right: auto;margin-left: auto;" src="{% static 'avatar/logo.jpeg' %}" alt="Cinque Terre" width="1000" height="300">
-    <h5>{% now "l jS F Y"%} Service</h5>
+<img class="rounded mx-auto d-block" src="{% static 'avatar/logo.jpeg' %}" alt="Cinque Terre" width="200" height="200">
+    <!-- <h5>{% now "l jS F Y"%} Service</h5> -->
     {% if errors %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
   <strong>Sorry!</strong> {{errors}}
