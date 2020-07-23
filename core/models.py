@@ -18,6 +18,15 @@ SEAT_STATUS_CHOICES = (
     (2, 'Blocked'),
     (3, 'Booked')
 )
+
+STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status='published')
+
 class Service(models.Model):
 	name=models.CharField(max_length=20)
 	service_type = models.CharField(max_length=20,choices=SERVICE_TYPE_CHOICES)
@@ -45,6 +54,11 @@ class Attendance(models.Model):
 	seat=models.ForeignKey(Seat, on_delete=models.CASCADE)
 	# check_in = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
+	status = models.CharField(max_length=10,
+                              choices=STATUS_CHOICES,
+                              default='published')
+	objects = models.Manager()
+	published = PublishedManager()
 
 	def __str__(self):
 		return f'{self.first_name} attended {self.service.name} and booked seat number {self.seat}'
