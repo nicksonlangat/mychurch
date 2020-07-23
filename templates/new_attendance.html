@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 {% block title %}Reserve A Seat{% endblock %}
 {% block content %}
-<img style="max-width:50;height:auto;" src="{% static 'avatar/logo.jpeg' %}" alt="Cinque Terre" width="1000" height="300"><strong>Gospel Revival Wave Church</strong>
-    <h3>{% now "l jS F Y"%}</h3>
+<img style="max-width:100%;height:auto;" src="{% static 'avatar/logo.jpeg' %}" alt="Cinque Terre" width="1000" height="300">
+    <strong>Gospel Revival Wave Church, {% now "l jS F Y"%} Service</strong>
     {% if errors %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
   <strong>Sorry!</strong> {{errors}}
